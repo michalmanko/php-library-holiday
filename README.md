@@ -59,4 +59,4 @@ Michalmanko/Holiday is open source. If you use this library it would be great to
 To create a new Provider please see the [`\Michalmanko\Holiday\Provider\Poland`](src/Michalmanko/Holiday/Provider/Poland.php) class as an example.
 
 ## Running Tests
-Run a `php composer.phar install` command in the base directory to install the `phpunit` dependency. After that you can simply call `vendor/bin/phpunit tests/` to run the test suite.
+Run a `php composer.phar install` command in the base directory to install the `phpunit` dependency. After that you can simply call `vendor/bin/phpunit -c phpunit.xml` to run the test suite.

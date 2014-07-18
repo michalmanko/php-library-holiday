@@ -4,8 +4,6 @@ namespace Michalmanko\Holiday\Test;
 
 use Michalmanko\Holiday;
 
-require_once __DIR__ . '/../../../vendor/autoload.php';
-
 class ProviderTest extends \PHPUnit_Framework_TestCase
 {
 
