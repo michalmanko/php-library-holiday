@@ -4,7 +4,7 @@
 Michalmanko/Holiday is a small library to check if a specified date is a holiday in a specific country.
 
 ## Requirements
-Michalmanko/Holiday requires php >= 5.3.
+Michalmanko/Holiday requires PHP 5.3.23 or later.
 
 ## Installation
 
@@ -14,7 +14,7 @@ The easiest way to install this library is through [composer](http://getcomposer
 ```json
 {
    "require": {
-        "michalmanko/holiday": "dev-master"
+        "michalmanko/holiday": "~0.1.1"
     }
 }
 ```
