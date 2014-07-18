@@ -1,4 +1,6 @@
 # Michalmanko/Holiday
+[![Build Status](https://travis-ci.org/michalmanko/php-library-holiday.svg?branch=master)](https://travis-ci.org/michalmanko/php-library-holiday)
+
 Michalmanko/Holiday is a small library to check if a specified date is a holiday in a specific country.
 
 ## Requirements

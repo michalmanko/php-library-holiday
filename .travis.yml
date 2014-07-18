@@ -6,7 +6,7 @@ php:
   - "5.3"
   
 script:
-  - vendor/bin/phpunit tests/
+  - vendor/bin/phpunit -c phpunit.xml
 
 install:
   - composer install
