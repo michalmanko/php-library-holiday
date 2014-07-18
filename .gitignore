@@ -1,4 +1,5 @@
 nbproject
+!.travis.yml
 ._*
 .~lock.*
 .buildpath
