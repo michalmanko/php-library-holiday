@@ -40,7 +40,7 @@ To check for holidays just create the provider for specific country and call the
 
 ```php
 $provider = \Michalmanko\Holiday\HolidayFactory::createProvider('PL');
-$holidays = $adapter->getHolidays(new \DateTime('2014-01-01'));
+$holidays = $provider->getHolidays(new \DateTime('2014-01-01'));
 ```
 
 If you just need to know if there is a holiday on your date or time period there are `isHoliday` and `hasHolidays` methods, too.
