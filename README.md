@@ -14,7 +14,7 @@ The easiest way to install this library is through [composer](http://getcomposer
 ```json
 {
    "require": {
-        "michalmanko/holiday": "~0.1.1"
+        "michalmanko/php-library-holiday": "~0.1.1"
     }
 }
 ```
@@ -27,9 +27,9 @@ Another way would be to download this library and configure the autoloading your
 ## Get a provider
 
 ```php
-$providerByIso = new \Michalmanko\Holiday\HolidayFactory::createProvider('PL');
-$providerByCountry = new \Michalmanko\Holiday\HolidayFactory::createProvider('Poland');
-$providerByClassName = new \Michalmanko\Holiday\HolidayFactory::createProvider('\\Michalmanko\\Holiday\\Provider\\Poland');
+$providerByIso = \Michalmanko\Holiday\HolidayFactory::createProvider('PL');
+$providerByCountry = \Michalmanko\Holiday\HolidayFactory::createProvider('Poland');
+$providerByClassName = \Michalmanko\Holiday\HolidayFactory::createProvider('\\Michalmanko\\Holiday\\Provider\\Poland');
 ```
 
 You can select provider by two-letter [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) country codes, country name or just a class name.
@@ -39,8 +39,8 @@ You can select provider by two-letter [ISO-3166-1](https://en.wikipedia.org/wiki
 To check for holidays just create the provider for specific country and call the `getHolidays` method.
 
 ```php
-$provider = new \Michalmanko\Holiday\HolidayFactory::createProvider('PL');
-$holidays = $adapter->getHolidays(new \DateTime('2014-01-01'));
+$provider = \Michalmanko\Holiday\HolidayFactory::createProvider('PL');
+$holidays = $provider->getHolidays(new \DateTime('2014-01-01'));
 ```
 
 If you just need to know if there is a holiday on your date or time period there are `isHoliday` and `hasHolidays` methods, too.
