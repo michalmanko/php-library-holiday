@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace Michalmanko\Holiday\Exception;
 
 /**
@@ -7,5 +9,4 @@ namespace Michalmanko\Holiday\Exception;
  */
 class UnexpectedValueException extends \UnexpectedValueException
 {
-    
 }

@@ -1,5 +1,14 @@
 # Michalmanko/Holiday
 [![Build Status](https://travis-ci.org/michalmanko/php-library-holiday.svg?branch=master)](https://travis-ci.org/michalmanko/php-library-holiday)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michalmanko/php-library-holiday/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michalmanko/php-library-holiday/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/michalmanko/php-library-holiday/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/michalmanko/php-library-holiday/?branch=master)
+
+[![Latest Stable Version](https://poser.pugx.org/michalmanko/php-library-holiday/v/stable.svg)](https://packagist.org/packages/michalmanko/php-library-holiday)
+[![Latest Unstable Version](https://poser.pugx.org/michalmanko/php-library-holiday/v/unstable.svg)](https://packagist.org/packages/michalmanko/php-library-holiday)
+
+[![License](https://poser.pugx.org/michalmanko/php-library-holiday/license.svg)](https://packagist.org/packages/michalmanko/php-library-holiday)
+[![Total Downloads](https://poser.pugx.org/michalmanko/php-library-holiday/downloads.svg)](https://packagist.org/packages/michalmanko/php-library-holiday)
+[![Monthly Downloads](https://poser.pugx.org/michalmanko/php-library-holiday/d/monthly.png)](https://packagist.org/packages/michalmanko/php-library-holiday)
 
 Michalmanko/Holiday is a small library to check if a specified date is a holiday in a specific country.
 
@@ -54,9 +63,9 @@ Michalmanko\Holiday is licensed under the MIT License, see the [`LICENSE.md`](LI
 See the [`CHANGELOG.md`](CHANGELOG.md) file for more details.
 
 ## Contributing
-Michalmanko/Holiday is open source. If you use this library it would be great to get some support for currently not implemented countries which you are familiar with. Pull requests will be reviewed and merged fast.
+Michalmanko/Holiday is open source. Everyone is more than welcome to [`contribute`](CONTRIBUTING.md) more of them. If you use this library it would be great to get some support for currently not implemented countries which you are familiar with. Pull requests will be reviewed and merged fast.
 
 To create a new Provider please see the [`\Michalmanko\Holiday\Provider\Poland`](src/Michalmanko/Holiday/Provider/Poland.php) class as an example.
 
 ## Running Tests
-Run a `php composer.phar install` command in the base directory to install the `phpunit` dependency. After that you can simply call `vendor/bin/phpunit -c phpunit.xml` to run the test suite.
+Run a `php composer install` command in the base directory to install the `phpunit` dependency. After that you can simply call `vendor/bin/phpunit -c phpunit.xml` to run the test suite.

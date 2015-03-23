@@ -2,12 +2,11 @@
 
 namespace Michalmanko\Holiday\Provider;
 
-use Michalmanko\Holiday\Holiday;
 use ArrayObject;
+use Michalmanko\Holiday\Holiday;
 
 class Poland extends AbstractProvider
 {
-
     /**
      * {@inheritdoc}
      */
@@ -37,9 +36,17 @@ class Poland extends AbstractProvider
         // Labour Day
         $data->append($this->createHoliday('Święto Pracy', $year . '-05-01', Holiday::TYPE_HOLIDAY));
         // Constitution Day
-        $data->append($this->createHoliday('Święto Konstytucji Trzeciego Maja', $year . '-05-03', Holiday::TYPE_HOLIDAY));
+        $data->append($this->createHoliday(
+            'Święto Konstytucji Trzeciego Maja',
+            $year . '-05-03',
+            Holiday::TYPE_HOLIDAY
+        ));
         // Assumption of the Blessed Virgin Mary
-        $data->append($this->createHoliday('Wniebowzięcie Najświętszej Maryi Panny', $year . '-08-15', Holiday::TYPE_HOLIDAY));
+        $data->append($this->createHoliday(
+            'Wniebowzięcie Najświętszej Maryi Panny',
+            $year . '-08-15',
+            Holiday::TYPE_HOLIDAY
+        ));
         // All Saints' Day
         $data->append($this->createHoliday('Dzień Zmarłych', $year . '-11-01', Holiday::TYPE_HOLIDAY));
         // Independence Day
@@ -49,7 +56,6 @@ class Poland extends AbstractProvider
         // Boxing Day
         $data->append($this->createHoliday('Drugi dzień Bożego Narodzenia', $year . '-12-26', Holiday::TYPE_HOLIDAY));
 
-        return $data;
+        return $data->getArrayCopy();
     }
-
 }

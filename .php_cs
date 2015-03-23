@@ -3,7 +3,9 @@
 use Symfony\CS\FixerInterface;
 
 $finder = Symfony\CS\Finder\DefaultFinder::create()
-    ->in(__DIR__ . '/src')
+    ->in(array(
+        __DIR__ . '/src'
+    ))
 ;
 
 return Symfony\CS\Config\Config::create()
@@ -71,8 +73,7 @@ return Symfony\CS\Config\Config::create()
         'multiline_spaces_before_semicolon',
         'no_blank_lines_before_namespace',
         'ordered_use',
-        'phpdoc_order',
-        'short_array_syntax'
+        'phpdoc_order'
     ])
     ->finder($finder)
 ;

@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace Michalmanko\Holiday\Provider\Exception;
 
 use Michalmanko\Holiday\Exception\UnexpectedValueException as ParentUnexpectedValueException;
@@ -9,5 +11,4 @@ use Michalmanko\Holiday\Exception\UnexpectedValueException as ParentUnexpectedVa
  */
 class UnexpectedValueException extends ParentUnexpectedValueException
 {
-    
 }

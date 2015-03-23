@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace Michalmanko\Holiday\Provider\Exception;
 
 use Michalmanko\Holiday\Exception\InvalidArgumentException as ParentInvalidArgumentException;
@@ -9,5 +11,4 @@ use Michalmanko\Holiday\Exception\InvalidArgumentException as ParentInvalidArgum
  */
 class InvalidArgumentException extends ParentInvalidArgumentException
 {
-    
 }

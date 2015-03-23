@@ -6,47 +6,46 @@ use DateTime;
 use DateTimeZone;
 
 /**
- * Holiday class
+ * Holiday class.
  */
 class Holiday extends DateTime
 {
-
     /**
-     * Holiday type - Holiday
+     * Holiday type - Holiday.
      */
     const TYPE_HOLIDAY = "holiday";
 
     /**
-     * Holiday type - School Holiday
+     * Holiday type - School Holiday.
      */
     const TYPE_SCHOOL_HOLIDAY = "school";
 
     /**
-     * Holiday type - notable
+     * Holiday type - notable.
      */
     const TYPE_NOTABLE = "notable";
 
     /**
      * Holiday type.
-     * 
+     *
      * @var string
      */
     private $type;
 
     /**
      * Holiday name.
-     * 
+     *
      * @var string
      */
     private $name;
 
     /**
      * Creates a new Holiday.
-     * 
-     * @param string $name Name
-     * @param mixed $time Time
+     *
+     * @param string       $name     Name
+     * @param mixed        $time     Time
      * @param DateTimeZone $timezone (optional) Timezone
-     * @param string $type (optional) Type
+     * @param string       $type     (optional) Type
      */
     public function __construct($name, $time, DateTimeZone $timezone = null, $type = self::TYPE_HOLIDAY)
     {
@@ -61,7 +60,7 @@ class Holiday extends DateTime
 
     /**
      * Returns the holiday name.
-     * 
+     *
      * @return string
      */
     public function getName()
@@ -71,8 +70,9 @@ class Holiday extends DateTime
 
     /**
      * Sets the holiday name.
-     * 
+     *
      * @param string $name
+     *
      * @return Holiday
      */
     public function setName($name)
@@ -84,7 +84,7 @@ class Holiday extends DateTime
 
     /**
      * Returns the holiday type.
-     * 
+     *
      * @return string
      */
     public function getType()
@@ -94,8 +94,9 @@ class Holiday extends DateTime
 
     /**
      * Sets the holiday type.
-     * 
+     *
      * @param string $type
+     *
      * @return Holiday
      */
     public function setType($type)
@@ -104,5 +105,4 @@ class Holiday extends DateTime
 
         return $this;
     }
-
 }

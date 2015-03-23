@@ -6,7 +6,6 @@ use Michalmanko\Holiday;
 
 class FactoryTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testPolandProvider()
     {
         $provider = Holiday\HolidayFactory::createProvider('PL');
@@ -28,7 +27,8 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     public function testProviderFactoryException()
     {
         $this->setExpectedException(
-            '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException', 'Cannot find Holiday provider class "\\Michalmanko\\Holiday\\FakeProvider\\Poland"'
+            '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException',
+            'Cannot find Holiday provider class "\\Michalmanko\\Holiday\\FakeProvider\\Poland"'
         );
         Holiday\HolidayFactory::createProvider('\\Michalmanko\\Holiday\\FakeProvider\\Poland');
     }
@@ -36,7 +36,8 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     public function testProviderFactoryException2()
     {
         $this->setExpectedException(
-            '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException', 'Cannot find Holiday provider class "\\Michalmanko\\Holiday\\Provider\\FakeProvider"'
+            '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException',
+            'Cannot find Holiday provider class "\\Michalmanko\\Holiday\\Provider\\FakeProvider"'
         );
         Holiday\HolidayFactory::createProvider('FakeProvider');
     }
@@ -58,7 +59,8 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
         Holiday\HolidayFactory::unregisterProvider('TEST');
 
         $this->setExpectedException(
-            '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException', 'Cannot find Holiday provider class "\\Michalmanko\\Holiday\\Provider\\TEST"'
+            '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException',
+            'Cannot find Holiday provider class "\\Michalmanko\\Holiday\\Provider\\TEST"'
         );
         Holiday\HolidayFactory::createProvider('TEST');
     }
@@ -75,18 +77,18 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testProviderFactoryRegistryRegisterByNamespace()
     {
-        require_once __DIR__ . '/Providers/ProviderTest.php';
-        Holiday\HolidayFactory::registerProvider('ProviderTest', '\\Test\ProviderTest');
+        Holiday\HolidayFactory::registerProvider(
+            'ProviderTest',
+            '\\Michalmanko\\Holiday\\Test\\Provider\\ProviderTest'
+        );
         $provider = Holiday\HolidayFactory::createProvider('ProviderTest');
         $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $provider);
     }
 
     public function testProviderFactoryRegistryRegisterByNotInstanceOfAbstract()
     {
-        $this->setExpectedException('\InvalidArgumentException');
-        require_once __DIR__ . '/Providers/NotProviderTest.php';
-        Holiday\HolidayFactory::registerProvider('NotProviderTest', '\\Test\NotProviderTest');
+        $this->setExpectedException('\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException');
+        Holiday\HolidayFactory::registerProvider('NotProviderTest', '\\tests\\Michalmanko\\Holiday\\Test\\Provider\\');
         Holiday\HolidayFactory::createProvider('NotProviderTest');
     }
-
 }

@@ -14,16 +14,16 @@
     stopOnIncomplete="false"
     stopOnSkipped="false">
     <testsuites>
-        <testsuite name="Michalmanko/Holiday Test Suite">
-            <directory phpVersion="5.3.0">./tests</directory>
+        <testsuite name="michalmanko/php-library-holiday">
+            <directory phpVersion="5.3.0">./src/Michalmanko/Holiday/Test</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory>src</directory>
+            <directory>./src</directory>
             <exclude>
-                <directory>vendor</directory>
+                <directory>./src/Michalmanko/Holiday/Test</directory>
             </exclude>
         </whitelist>
     </filter>

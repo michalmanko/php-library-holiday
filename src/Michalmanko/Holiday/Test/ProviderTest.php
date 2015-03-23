@@ -1,12 +1,11 @@
 <?php
 
-namespace Michalmanko\Holiday\Test;
+namespace tests\Michalmanko\Holiday;
 
 use Michalmanko\Holiday;
 
 class ProviderTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testProvider()
     {
         $provider = Holiday\HolidayFactory::createProvider('PL');
@@ -30,8 +29,16 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(0, $provider->getHolidays(new \DateTime('2014-01-01'), Holiday\Holiday::TYPE_NOTABLE));
 
         $this->assertCount(2, $provider->getHolidays(new \DateTime('2014-12-25'), new \DateTime('2014-12-26')));
-        $this->assertCount(2, $provider->getHolidays(new \DateTime('2014-12-25'), new \DateTime('2014-12-26'), Holiday\Holiday::TYPE_HOLIDAY));
-        $this->assertCount(0, $provider->getHolidays(new \DateTime('2014-12-25'), new \DateTime('2014-12-26'), Holiday\Holiday::TYPE_NOTABLE));
+        $this->assertCount(2, $provider->getHolidays(
+            new \DateTime('2014-12-25'),
+            new \DateTime('2014-12-26'),
+            Holiday\Holiday::TYPE_HOLIDAY
+        ));
+        $this->assertCount(0, $provider->getHolidays(
+            new \DateTime('2014-12-25'),
+            new \DateTime('2014-12-26'),
+            Holiday\Holiday::TYPE_NOTABLE
+        ));
     }
 
     public function testIsHoliday()
@@ -46,10 +53,17 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
     {
         $provider = Holiday\HolidayFactory::createProvider('PL');
         $this->assertTrue($provider->hasHolidays(new \DateTime('2014-01-06'), new \DateTime('2014-01-07')));
-        $this->assertTrue($provider->hasHolidays(new \DateTime('2014-01-06'), new \DateTime('2014-01-07'), Holiday\Holiday::TYPE_HOLIDAY));
-        $this->assertFalse($provider->hasHolidays(new \DateTime('2014-01-06'), new \DateTime('2014-01-07'), Holiday\Holiday::TYPE_NOTABLE));
+        $this->assertTrue($provider->hasHolidays(
+            new \DateTime('2014-01-06'),
+            new \DateTime('2014-01-07'),
+            Holiday\Holiday::TYPE_HOLIDAY
+        ));
+        $this->assertFalse($provider->hasHolidays(
+            new \DateTime('2014-01-06'),
+            new \DateTime('2014-01-07'),
+            Holiday\Holiday::TYPE_NOTABLE
+        ));
 
         $this->assertFalse($provider->hasHolidays(new \DateTime('2014-01-07'), new \DateTime('2014-01-08')));
     }
-
 }
