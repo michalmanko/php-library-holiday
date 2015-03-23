@@ -74,8 +74,8 @@ abstract class HolidayFactory
     /**
      * Creates a holidays provider based on $countryCode code.
      *
-     * @param string       $countryCode ISO Country Code, County Name or provider class name
-     * @param DateTimeZone $timezone    (optional) Time zone
+     * @param string            $countryCode ISO Country Code, County Name or provider class name
+     * @param null|DateTimeZone $timezone    (optional) Time zone
      *
      * @throws InvalidArgumentException
      *

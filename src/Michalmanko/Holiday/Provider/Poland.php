@@ -27,7 +27,7 @@ class Poland extends AbstractProvider
         $data->append($pentecost);
         // Corpus Christi
         $corpusChristi = $this->createHoliday('Boże Ciało', $easter, Holiday::TYPE_HOLIDAY);
-        $corpusChristi->modify("+60 days");
+        $corpusChristi->modify('+60 days');
         $data->append($corpusChristi);
         // New Year's Day
         $data->append($this->createHoliday('Nowy Rok', $year . '-01-01', Holiday::TYPE_HOLIDAY));

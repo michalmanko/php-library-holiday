@@ -13,17 +13,17 @@ class Holiday extends DateTime
     /**
      * Holiday type - Holiday.
      */
-    const TYPE_HOLIDAY = "holiday";
+    const TYPE_HOLIDAY = 'holiday';
 
     /**
      * Holiday type - School Holiday.
      */
-    const TYPE_SCHOOL_HOLIDAY = "school";
+    const TYPE_SCHOOL_HOLIDAY = 'school';
 
     /**
      * Holiday type - notable.
      */
-    const TYPE_NOTABLE = "notable";
+    const TYPE_NOTABLE = 'notable';
 
     /**
      * Holiday type.
@@ -42,10 +42,10 @@ class Holiday extends DateTime
     /**
      * Creates a new Holiday.
      *
-     * @param string       $name     Name
-     * @param mixed        $time     Time
-     * @param DateTimeZone|null $timezone (optional) Timezone
-     * @param string|null       $type     (optional) Type
+     * @param string            $name     Name
+     * @param mixed             $time     Time
+     * @param null|DateTimeZone $timezone (optional) Timezone
+     * @param null|string       $type     (optional) Type
      */
     public function __construct($name, $time, DateTimeZone $timezone = null, $type = self::TYPE_HOLIDAY)
     {

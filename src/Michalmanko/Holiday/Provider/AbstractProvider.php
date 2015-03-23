@@ -29,7 +29,7 @@ abstract class AbstractProvider
     private $holidays = array();
 
     /**
-     * @param DateTimeZone $timezone (optional) Timezone
+     * @param null|DateTimeZone $timezone (optional) Timezone
      */
     public function __construct(DateTimeZone $timezone = null)
     {
@@ -94,8 +94,8 @@ abstract class AbstractProvider
     /**
      * Returns the holidays in given year.
      *
-     * @param int    $year The year to get the holidays for
-     * @param string $type (optional) Holiday type
+     * @param int         $year The year to get the holidays for
+     * @param null|string $type (optional) Holiday type
      *
      * @throws InvalidArgumentException
      *
@@ -180,9 +180,9 @@ abstract class AbstractProvider
     /**
      * Returns true if any holiday exists in the given time period.
      *
-     * @param DateTime $startDate The start date
-     * @param DateTime $endDate   (optional) The end date
-     * @param string   $type      (optional) Holiday type
+     * @param DateTime      $startDate The start date
+     * @param null|DateTime $endDate   (optional) The end date
+     * @param null|string   $type      (optional) Holiday type
      *
      * @return boolean
      */
@@ -194,8 +194,8 @@ abstract class AbstractProvider
     /**
      * Returns true if $date is a holiday.
      *
-     * @param DateTime $date The date
-     * @param string   $type (optional) Holiday type
+     * @param DateTime    $date The date
+     * @param null|string $type (optional) Holiday type
      *
      * @return boolean
      */
