@@ -1,0 +1,12 @@
+# Definitively text files
+*.php text eol=lf
+*.yml text eol=lf
+*.xml text eol=lf
+*.twig text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
