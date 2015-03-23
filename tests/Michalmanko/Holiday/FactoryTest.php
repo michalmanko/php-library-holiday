@@ -63,4 +63,30 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
         Holiday\HolidayFactory::createProvider('TEST');
     }
 
+    public function testProviderFactoryRegistryUnregisterByName()
+    {
+        $this->assertTrue(Holiday\HolidayFactory::unregisterProvider('Denmark'));
+    }
+
+    public function testProviderFactoryRegistryUnregisterByNameUnknown()
+    {
+        $this->assertFalse(Holiday\HolidayFactory::unregisterProvider('Foo'));
+    }
+
+    public function testProviderFactoryRegistryRegisterByNamespace()
+    {
+        require_once __DIR__ . '/Providers/ProviderTest.php';
+        Holiday\HolidayFactory::registerProvider('ProviderTest', '\\Test\ProviderTest');
+        $provider = Holiday\HolidayFactory::createProvider('ProviderTest');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $provider);
+    }
+
+    public function testProviderFactoryRegistryRegisterByNotInstanceOfAbstract()
+    {
+        $this->setExpectedException('\InvalidArgumentException');
+        require_once __DIR__ . '/Providers/NotProviderTest.php';
+        Holiday\HolidayFactory::registerProvider('NotProviderTest', '\\Test\NotProviderTest');
+        Holiday\HolidayFactory::createProvider('NotProviderTest');
+    }
+
 }

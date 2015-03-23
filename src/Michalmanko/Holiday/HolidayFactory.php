@@ -19,7 +19,8 @@ abstract class HolidayFactory
      * @var array
      */
     protected static $providers = array(
-        'PL' => 'Poland'
+        'PL' => 'Poland',
+        'DK' => 'Denmark'
     );
 
     /**
