@@ -44,8 +44,8 @@ class Holiday extends DateTime
      *
      * @param string       $name     Name
      * @param mixed        $time     Time
-     * @param DateTimeZone $timezone (optional) Timezone
-     * @param string       $type     (optional) Type
+     * @param DateTimeZone|null $timezone (optional) Timezone
+     * @param string|null       $type     (optional) Type
      */
     public function __construct($name, $time, DateTimeZone $timezone = null, $type = self::TYPE_HOLIDAY)
     {
