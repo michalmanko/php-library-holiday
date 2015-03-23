@@ -2,7 +2,7 @@
     "name": "michalmanko/php-library-holiday",
     "version": "0.2.0",
     "description": "A library to calculate holidays",
-    "keywords": ["holiday", "polish holidays"],
+    "keywords": ["holiday", "polish holidays", "danish holidays"],
     "type": "library",
     "license": "MIT",
     "authors": [{
