@@ -47,6 +47,16 @@ class ProviderTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($provider->isHoliday(new \DateTime('2014-01-06')));
         $this->assertTrue($provider->isHoliday(new \DateTime('2014-01-06'), Holiday\Holiday::TYPE_HOLIDAY));
         $this->assertFalse($provider->isHoliday(new \DateTime('2014-01-06'), Holiday\Holiday::TYPE_NOTABLE));
+
+    }
+
+    public function testDontModifyDates()
+    {
+        $provider = Holiday\HolidayFactory::createProvider('PL');
+        $holiday = new \DateTime('2014-01-06');
+    	$timestamp = $holiday->getTimestamp();
+        $this->assertTrue($provider->isHoliday($holiday));
+    	$this->assertEquals($timestamp, $holiday->getTimestamp(), 'date was not modified');
     }
 
     public function testhasHolidays()

@@ -148,6 +148,7 @@ abstract class AbstractProvider
      */
     public function getHolidays(DateTime $startDate, $endDateOrType = null, $type = null)
     {
+    	$startDate = clone $startDate;
         $startDate->setTime(0, 0, 0);
 
         if ($endDateOrType !== null && !($endDateOrType instanceof DateTime)) {
@@ -158,6 +159,8 @@ abstract class AbstractProvider
             $endDateOrType = clone $startDate;
         } elseif ($endDateOrType === null) {
             $endDateOrType = clone $startDate;
+        } else {
+        	$endDateOrType = clone $endDateOrType;
         }
         $endDateOrType->setTime(23, 59, 59);
 
