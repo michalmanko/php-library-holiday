@@ -2,6 +2,7 @@
 *.php text eol=lf
 *.yml text eol=lf
 *.xml text eol=lf
+*.xml.dist text eol=lf
 *.twig text eol=lf
 *.md text eol=lf
 *.html text eol=lf
@@ -10,3 +11,4 @@
 *.scss text eol=lf
 *.json text eol=lf
 *.txt text eol=lf
+*.php_cs text eol=lf

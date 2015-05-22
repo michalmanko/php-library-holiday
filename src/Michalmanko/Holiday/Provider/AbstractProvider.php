@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Holiday Library.
+ *
+ * (c) Michał Mańko <github@michalmanko.com>
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Michalmanko\Holiday\Provider;
 
 use ArrayObject;
@@ -86,7 +95,7 @@ abstract class AbstractProvider
             throw new InvalidArgumentException('Invalid year given');
         }
         $easter->setTime(0, 0, 0);
-        $easter->modify('+' . \easter_days($year) . 'days');
+        $easter->modify('+' . easter_days($year) . 'days');
 
         return $easter;
     }
@@ -111,13 +120,13 @@ abstract class AbstractProvider
 
         if (!isset($this->holidays[$year])) {
             $preparedHolidays = $this->prepareHolidays($year);
-            if (\is_object($preparedHolidays) && $preparedHolidays instanceof ArrayObject) {
+            if (is_object($preparedHolidays) && $preparedHolidays instanceof ArrayObject) {
                 $preparedHolidays = $preparedHolidays->getArrayCopy();
             }
-            if (!\is_array($preparedHolidays)) {
+            if (!is_array($preparedHolidays)) {
                 throw new UnexpectedValueException(\sprintf(
                     'Method %s::prepareHolidays() must returns an array',
-                    \get_class($this)
+                    get_class($this)
                 ));
             }
 
@@ -126,7 +135,7 @@ abstract class AbstractProvider
 
         if ($type !== null) {
             // Note: array_filter preserves keys, so we use array_values to reset array keys
-            return \array_values(\array_filter(
+            return array_values(array_filter(
                 $this->holidays[$year],
                 function (Holiday $holiday) use ($type) {
                     return $holiday->getType() === $type;
@@ -142,7 +151,7 @@ abstract class AbstractProvider
      *
      * @param DateTime $startDate     The start date
      * @param mixed    $endDateOrType (optional) The end date or holiday type
-     * @param string (optional) Holiday type
+     * @param string   $type          (optional) Holiday type
      *
      * @return array
      */
@@ -165,11 +174,11 @@ abstract class AbstractProvider
         $endyear   = (int) $endDateOrType->format('Y');
         $holidays  = array();
         for ($y = $startyear; $y <= $endyear; $y++) {
-            $holidays = \array_merge($holidays, $this->getHolidaysByYear($y, $type));
+            $holidays = array_merge($holidays, $this->getHolidaysByYear($y, $type));
         }
 
         // Note: array_filter preserves keys, so we use array_values to reset array keys
-        return \array_values(\array_filter(
+        return array_values(array_filter(
             $holidays,
             function (Holiday $holiday) use ($startDate, $endDateOrType) {
                 return $holiday >= $startDate && $holiday <= $endDateOrType;
@@ -184,11 +193,11 @@ abstract class AbstractProvider
      * @param null|DateTime $endDate   (optional) The end date
      * @param null|string   $type      (optional) Holiday type
      *
-     * @return boolean
+     * @return bool
      */
     public function hasHolidays(DateTime $startDate, DateTime $endDate, $type = null)
     {
-        return \count($this->getHolidays($startDate, $endDate, $type)) > 0;
+        return count($this->getHolidays($startDate, $endDate, $type)) > 0;
     }
 
     /**
@@ -197,10 +206,10 @@ abstract class AbstractProvider
      * @param DateTime    $date The date
      * @param null|string $type (optional) Holiday type
      *
-     * @return boolean
+     * @return bool
      */
     public function isHoliday(DateTime $date, $type = null)
     {
-        return \count($this->getHolidays($date, null, $type)) > 0;
+        return count($this->getHolidays($date, null, $type)) > 0;
     }
 }

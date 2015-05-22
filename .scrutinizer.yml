@@ -1,46 +1,65 @@
-filter:
-    excluded_paths:
-        - 'src/Michalmanko/Holiday/Test/*'
+before_commands:
+    - composer install --dev --no-interaction
+tools:
+    php_sim: true
+    php_analyzer:
+        enabled: true
+        filter:
+            excluded_paths:
+                - './bin/*'
+                - './vendor/*'
+                - './build/*'
+    php_code_sniffer:
+        config:
+            standard: "PSR2"
+        filter:
+            paths:
+                - './src/*'
+                - './tests/*'
+    php_cpd:
+        enabled: true
+        excluded_dirs:
+            - ./bin
+            - ./vendor
+            - ./build
+    php_pdepend:
+        enabled: true
+        excluded_dirs:
+            - ./bin
+            - ./vendor
+            - ./build
+    php_loc:
+        enabled: true
+        excluded_dirs:
+            - ./bin
+            - ./vendor
+            - ./build
+    php_mess_detector:
+        enabled: true
+        config:
+            rulesets:
+                - cleancode
+                - codesize
+                - unusedcode
+                - naming
+                - design
+                - controversial
+        filter:
+            excluded_paths:
+                - './bin/*'
+                - './vendor/*'
+                - './build/*'
+build:
+    environment:
+        php: '5.6.0'
+    tests:
+        override:
+            -
+                command: './bin/phpunit -c ./phpunit.xml.dist --coverage-clover=./build/logs/clover.xml'
+                coverage:
+                    file: './build/logs/clover.xml'
+                    format: 'php-clover'
 checks:
     php:
-        uppercase_constants: true
-        use_self_instead_of_fqcn: true
-        return_doc_comments: true
-        properties_in_camelcaps: true
-        phpunit_assertions: true
-        parameters_in_camelcaps: true
-        parameter_doc_comments: true
-        avoid_fixme_comments: true
-        avoid_todo_comments: true
-        classes_in_camel_caps: true
-        function_in_camel_caps: true
-        line_length:
-            max_length: '120'
-        naming_conventions:
-            local_variable: '^[a-z][a-zA-Z0-9]*$'
-            abstract_class_name: ^Abstract|Factory$
-            utility_class_name: ''
-            constant_name: '^[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*$'
-            property_name: '^[a-z][a-zA-Z0-9]*$'
-            method_name: '^(?:[a-z]|__)[a-zA-Z0-9]*$'
-            parameter_name: '^[a-z][a-zA-Z0-9]*$'
-            interface_name: '^[A-Z][a-zA-Z0-9]*Interface$'
-            type_name: '^[A-Z][a-zA-Z0-9]*$'
-            exception_name: '^[A-Z][a-zA-Z0-9]*Exception$'
-            isser_method_name: ''
-        newline_at_end_of_file: true
-        no_goto: true
-        no_long_variable_names:
-            maximum: '30'
-        no_short_method_names:
-            minimum: '3'
-        no_short_variable_names:
-            minimum: '3'
-        simplify_boolean_return: true
-        optional_parameters_at_the_end: true
-        encourage_single_quotes: true
-        avoid_perl_style_comments: true
-        fix_doc_comments: false
-
-coding_style:
-    php: { }
+        code_rating: true
+        duplication: true

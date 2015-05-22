@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/michalmanko/php-library-holiday.svg?branch=master)](https://travis-ci.org/michalmanko/php-library-holiday)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michalmanko/php-library-holiday/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michalmanko/php-library-holiday/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/michalmanko/php-library-holiday/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/michalmanko/php-library-holiday/?branch=master)
+[![Dependency Status](https://www.versioneye.com/user/projects/5560cab5366466001f0c0000/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5560cab5366466001f0c0000)
 
 [![Latest Stable Version](https://poser.pugx.org/michalmanko/php-library-holiday/v/stable.svg)](https://packagist.org/packages/michalmanko/php-library-holiday)
 [![Latest Unstable Version](https://poser.pugx.org/michalmanko/php-library-holiday/v/unstable.svg)](https://packagist.org/packages/michalmanko/php-library-holiday)
@@ -23,13 +24,13 @@ The easiest way to install this library is through [composer](http://getcomposer
 ```json
 {
    "require": {
-        "michalmanko/php-library-holiday": "~0.2.0"
+        "michalmanko/php-library-holiday": "~1.0.0"
     }
 }
 ```
 
 ### Manually
-Another way would be to download this library and configure the autoloading yourself. This library relies on a [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) compatible autoloader for automatic class loading.
+Another way would be to download this library and configure the autoloading yourself. This library relies on a [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) compatible autoloader for automatic class loading.
 
 ## Usage
 
@@ -68,4 +69,4 @@ Michalmanko/Holiday is open source. Everyone is more than welcome to [`contribut
 To create a new Provider please see the [`\Michalmanko\Holiday\Provider\Poland`](src/Michalmanko/Holiday/Provider/Poland.php) class as an example.
 
 ## Running Tests
-Run a `php composer install` command in the base directory to install the `phpunit` dependency. After that you can simply call `vendor/bin/phpunit -c phpunit.xml` to run the test suite.
+Run a `php composer install` command in the base directory to install the `phpunit` dependency. After that you can simply call `vendor/bin/phpunit -c phpunit.xml.dist` to run the test suite.

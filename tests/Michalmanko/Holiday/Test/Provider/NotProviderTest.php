@@ -9,11 +9,8 @@
  * file that was distributed with this source code.
  */
 
-namespace Michalmanko\Holiday\Exception;
+namespace Michalmanko\Holiday\Test\Provider;
 
-/**
- * Exception thrown if a value does not match with a set of values.
- */
-class UnexpectedValueException extends \UnexpectedValueException
+class NotProviderTest
 {
 }

@@ -2,7 +2,7 @@
 
 ## Quick guide:
 
- * Fork the repo.
+ * [Fork the repo on GitHub](https://github.com/michalmanko/php-library-holiday/fork).
  * Install dependencies: `composer install`.
  * Create branch, e.g. feature-foo or bugfix-bar.
  * Make changes.
@@ -25,5 +25,6 @@ You can do some things to increase the chance that your pull request is accepted
  * [PSR-0: Autoloading Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
  * [PSR-1: Basic Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md)
  * [PSR-2: Coding Style Guide](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
+ * [PSR-4: Autoloader](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md)
  * [Symfony Coding Standards](http://symfony.com/doc/current/contributing/code/standards.html)
  * Keep the order of class elements: static properties, instance properties, constructor (or setUp for PHPUnit), destructor (or tearDown for PHPUnit), static methods, instance methods, magic static methods, magic instance methods.
