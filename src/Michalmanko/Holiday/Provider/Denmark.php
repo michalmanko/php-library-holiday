@@ -83,10 +83,10 @@ class Denmark extends AbstractProvider
         );
         $pentecostDay2->modify('+1 day');
         $data->append($pentecostDay2);
-        
+
         // Constitution day
         $data->append($this->createHoliday('Grundlovsdag', $year . '-06-5', Holiday::TYPE_HOLIDAY));
-        
+
         // Christmas day
         $data->append($this->createHoliday('Juledag', $year . '-12-25', Holiday::TYPE_HOLIDAY));
 

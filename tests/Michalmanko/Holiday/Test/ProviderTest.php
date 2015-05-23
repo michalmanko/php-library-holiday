@@ -53,6 +53,19 @@ class ProviderTest extends PHPUnit_Framework_TestCase
         ));
     }
 
+    public function testDontModifyDates()
+    {
+        $provider      = HolidayFactory::createProvider('PL');
+        $from          = new DateTime('2014-01-05 12:00:00');
+        $to            = new DateTime('2014-01-07 14:00:00');
+        $fromTimestamp = $from->getTimestamp();
+        $toTimestamp   = $to->getTimestamp();
+
+        $provider->getHolidays($from, $to);
+        $this->assertEquals($fromTimestamp, $from->getTimestamp(), 'Start date was modified');
+        $this->assertEquals($toTimestamp,   $to->getTimestamp(), 'End date was modified');
+    }
+
     public function testIsHoliday()
     {
         $provider = HolidayFactory::createProvider('PL');
