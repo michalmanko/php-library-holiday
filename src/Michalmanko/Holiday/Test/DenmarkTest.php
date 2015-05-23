@@ -25,6 +25,7 @@ class DenmarkTest extends AbstractProviderTest
             ),
             array('Pinsedag', Holiday\Holiday::TYPE_HOLIDAY, array('2015-05-24', '2020-05-31', '2025-06-08')),
             array('2. Pinsedag', Holiday\Holiday::TYPE_HOLIDAY, array('2015-05-25', '2020-06-01', '2025-06-09')),
+            array('Grundlovsdag', Holiday\Holiday::TYPE_HOLIDAY, array('2015-06-05', '2016-06-05')),
             array('Juledag', Holiday\Holiday::TYPE_HOLIDAY, array('2015-12-25', '2020-12-25')),
             array('2. Juledag', Holiday\Holiday::TYPE_HOLIDAY, array('2015-12-26', '2020-12-26')),
         );
