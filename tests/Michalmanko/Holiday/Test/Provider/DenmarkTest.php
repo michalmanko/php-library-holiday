@@ -9,14 +9,29 @@
  * file that was distributed with this source code.
  */
 
-namespace Michalmanko\Holiday\Test;
+namespace Michalmanko\Holiday\Test\Provider;
 
 use Michalmanko\Holiday\Holiday;
 
-class DenmarkTest extends AbstractProviderTest
+/**
+ *
+ */
+class DenmarkTest extends AbstractTestProvider
 {
-    public $providerCountryCode = 'DK';
-    public $providerInstanceOf  = '\\Michalmanko\\Holiday\\Provider\\Denmark';
+    public function getProviderCountryCode()
+    {
+        return 'DK';
+    }
+
+    public function getProviderCountryName()
+    {
+        return 'Denmark';
+    }
+
+    public function getProviderInstanceOf()
+    {
+        return '\\Michalmanko\\Holiday\\Provider\\Denmark';
+    }
 
     public function dataProvider()
     {
@@ -26,14 +41,26 @@ class DenmarkTest extends AbstractProviderTest
             array('Langfredag', Holiday::TYPE_HOLIDAY, array('2015-04-03', '2020-04-10')),
             array('Påskedag', Holiday::TYPE_HOLIDAY, array('2015-04-05', '2020-04-12')),
             array('2. Påskedag', Holiday::TYPE_HOLIDAY, array('2015-04-06', '2020-04-13')),
-            array('Store bededag', Holiday::TYPE_HOLIDAY, array('2015-05-01', '2020-05-08', '2025-05-16')),
+            array(
+                'Store bededag',
+                Holiday::TYPE_HOLIDAY,
+                array('2015-05-01', '2020-05-08', '2025-05-16'),
+            ),
             array(
                 'Kristi himmelfartsdag',
                 Holiday::TYPE_HOLIDAY,
                 array('2015-05-14', '2020-05-21', '2025-05-29'),
             ),
-            array('Pinsedag', Holiday::TYPE_HOLIDAY, array('2015-05-24', '2020-05-31', '2025-06-08')),
-            array('2. Pinsedag', Holiday::TYPE_HOLIDAY, array('2015-05-25', '2020-06-01', '2025-06-09')),
+            array(
+                'Pinsedag',
+                Holiday::TYPE_HOLIDAY,
+                array('2015-05-24', '2020-05-31', '2025-06-08'),
+            ),
+            array(
+                '2. Pinsedag',
+                Holiday::TYPE_HOLIDAY,
+                array('2015-05-25', '2020-06-01', '2025-06-09'),
+            ),
             array('Grundlovsdag', Holiday::TYPE_HOLIDAY, array('2015-06-05', '2016-06-05')),
             array('Juledag', Holiday::TYPE_HOLIDAY, array('2015-12-25', '2020-12-25')),
             array('2. Juledag', Holiday::TYPE_HOLIDAY, array('2015-12-26', '2020-12-26')),

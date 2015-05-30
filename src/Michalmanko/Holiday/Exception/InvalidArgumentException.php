@@ -13,6 +13,8 @@ namespace Michalmanko\Holiday\Exception;
 
 /**
  * Exception thrown if an argument does not match with the expected value.
+ *
+ * @author Michał Mańko <github@michalmanko.com>
  */
 class InvalidArgumentException extends \InvalidArgumentException
 {

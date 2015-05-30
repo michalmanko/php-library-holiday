@@ -24,7 +24,7 @@ The easiest way to install this library is through [composer](http://getcomposer
 ```json
 {
    "require": {
-        "michalmanko/php-library-holiday": "~1.0.0"
+        "michalmanko/php-library-holiday": "~1.1.0"
     }
 }
 ```

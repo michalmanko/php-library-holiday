@@ -15,6 +15,8 @@ use Michalmanko\Holiday\Exception\InvalidArgumentException as ParentInvalidArgum
 
 /**
  * Exception thrown if an argument does not match with the expected value.
+ *
+ * @author Michał Mańko <github@michalmanko.com>
  */
 class InvalidArgumentException extends ParentInvalidArgumentException
 {

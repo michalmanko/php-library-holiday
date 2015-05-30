@@ -27,24 +27,44 @@ class Denmark extends AbstractProvider
         $data = new ArrayObject();
 
         // New year's day
-        $data->append($this->createHoliday('Nytårsdag', $year . '-01-01', Holiday::TYPE_HOLIDAY));
+        $data->append($this->createHoliday(
+            'Nytårsdag',
+            $year . '-01-01',
+            Holiday::TYPE_HOLIDAY
+        ));
 
         // Easter Sunday
-        $easter = $this->createHoliday('Påskedag', $this->getEaster($year), Holiday::TYPE_HOLIDAY);
+        $easter = $this->createHoliday(
+            'Påskedag',
+            $this->getEaster($year),
+            Holiday::TYPE_HOLIDAY
+        );
         $data->append($easter);
 
         // Maundy Thursday
-        $easterThursday = $this->createHoliday('Skærtorsdag', $easter, Holiday::TYPE_HOLIDAY);
+        $easterThursday = $this->createHoliday(
+            'Skærtorsdag',
+            $easter,
+            Holiday::TYPE_HOLIDAY
+        );
         $easterThursday->modify('-3 days');
         $data->append($easterThursday);
 
         // Good Friday
-        $easterFriday = $this->createHoliday('Langfredag', $easter, Holiday::TYPE_HOLIDAY);
+        $easterFriday = $this->createHoliday(
+            'Langfredag',
+            $easter,
+            Holiday::TYPE_HOLIDAY
+        );
         $easterFriday->modify('-2 days');
         $data->append($easterFriday);
 
         // Easter Monday
-        $easterMonday = $this->createHoliday('2. Påskedag', $easter, Holiday::TYPE_HOLIDAY);
+        $easterMonday = $this->createHoliday(
+            '2. Påskedag',
+            $easter,
+            Holiday::TYPE_HOLIDAY
+        );
         $easterMonday->modify('+1 day');
         $data->append($easterMonday);
 
@@ -85,13 +105,25 @@ class Denmark extends AbstractProvider
         $data->append($pentecostDay2);
 
         // Constitution day
-        $data->append($this->createHoliday('Grundlovsdag', $year . '-06-5', Holiday::TYPE_HOLIDAY));
+        $data->append($this->createHoliday(
+            'Grundlovsdag',
+            $year . '-06-5',
+            Holiday::TYPE_HOLIDAY
+        ));
 
         // Christmas day
-        $data->append($this->createHoliday('Juledag', $year . '-12-25', Holiday::TYPE_HOLIDAY));
+        $data->append($this->createHoliday(
+            'Juledag',
+            $year . '-12-25',
+            Holiday::TYPE_HOLIDAY
+        ));
 
         // Boxing Day
-        $data->append($this->createHoliday('2. Juledag', $year . '-12-26', Holiday::TYPE_HOLIDAY));
+        $data->append($this->createHoliday(
+            '2. Juledag',
+            $year . '-12-26',
+            Holiday::TYPE_HOLIDAY
+        ));
 
         return $data->getArrayCopy();
     }

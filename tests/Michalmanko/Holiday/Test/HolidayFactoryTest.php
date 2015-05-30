@@ -14,36 +14,52 @@ namespace Michalmanko\Holiday\Test;
 use Michalmanko\Holiday\HolidayFactory;
 use PHPUnit_Framework_TestCase;
 
-class FactoryTest extends PHPUnit_Framework_TestCase
+/**
+ * @author Michał Mańko <github@michalmanko.com>
+ */
+class HolidayFactoryTest extends PHPUnit_Framework_TestCase
 {
-    public function testPolandProvider()
+    public function testCreateProvider()
     {
-        $provider = HolidayFactory::createProvider('PL');
+        $provider = HolidayFactory::createProvider(
+            '\\Michalmanko\\Holiday\\Test\\Provider\\Provider'
+        );
 
-        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $provider);
-        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Poland', $provider);
+        $this->assertInstanceOf(
+            '\\Michalmanko\\Holiday\\Provider\\AbstractProvider',
+            $provider
+        );
+        $this->assertInstanceOf(
+            '\\Michalmanko\\Holiday\\Test\\Provider\\Provider',
+            $provider
+        );
 
-        $provider2 = HolidayFactory::createProvider('Poland');
+        HolidayFactory::registerProvider(
+            'Country',
+            '\\Michalmanko\\Holiday\\Test\\Provider\\Provider'
+        );
+
+        $provider2 = HolidayFactory::createProvider('Country');
 
         $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $provider2);
-        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Poland', $provider2);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Test\\Provider\\Provider', $provider2);
 
-        $provider3 = HolidayFactory::createProvider('\\Michalmanko\\Holiday\\Provider\\Poland');
+        $provider3 = HolidayFactory::createProvider('Poland');
 
         $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $provider3);
         $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Poland', $provider3);
     }
 
-    public function testProviderFactoryException()
+    public function testProviderFactoryNotFound()
     {
         $this->setExpectedException(
             '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException',
-            'Cannot find Holiday provider class "\\Michalmanko\\Holiday\\FakeProvider\\Poland"'
+            'Cannot find Holiday provider class "\\Michalmanko\\Holiday\\FakeProvider\\Provider"'
         );
-        HolidayFactory::createProvider('\\Michalmanko\\Holiday\\FakeProvider\\Poland');
+        HolidayFactory::createProvider('\\Michalmanko\\Holiday\\FakeProvider\\Provider');
     }
 
-    public function testProviderFactoryException2()
+    public function testProviderFactoryNotFound2()
     {
         $this->setExpectedException(
             '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException',
@@ -52,9 +68,19 @@ class FactoryTest extends PHPUnit_Framework_TestCase
         HolidayFactory::createProvider('FakeProvider');
     }
 
+    public function testProviderFactoryInvalidProvider()
+    {
+        $this->setExpectedException(
+            '\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException',
+            'Class "\\Michalmanko\\Holiday\\Test\\Provider\\NotProvider"'
+            . ' must be an instance of \\Michalmanko\\Holiday\\Provider\\AbstractProvider'
+        );
+        HolidayFactory::createProvider('\\Michalmanko\\Holiday\\Test\\Provider\\NotProvider');
+    }
+
     public function testProviderFactoryRegistry()
     {
-        $this->assertArrayHasKey('PL', HolidayFactory::getProviders());
+        $this->assertInternalType('array', HolidayFactory::getProviders());
     }
 
     public function testProviderFactoryRegistryRegister()
@@ -77,7 +103,14 @@ class FactoryTest extends PHPUnit_Framework_TestCase
 
     public function testProviderFactoryRegistryUnregisterByName()
     {
-        $this->assertTrue(HolidayFactory::unregisterProvider('Denmark'));
+        HolidayFactory::registerProvider('Test', 'TestProvider');
+        $this->assertTrue(HolidayFactory::unregisterProvider('Test'));
+    }
+
+    public function testProviderFactoryRegistryUnregisterByClassName()
+    {
+        HolidayFactory::registerProvider('Test', 'TestProvider');
+        $this->assertTrue(HolidayFactory::unregisterProvider('TestProvider'));
     }
 
     public function testProviderFactoryRegistryUnregisterByNameUnknown()
@@ -88,17 +121,17 @@ class FactoryTest extends PHPUnit_Framework_TestCase
     public function testProviderFactoryRegistryRegisterByNamespace()
     {
         HolidayFactory::registerProvider(
-            'ProviderTest',
-            '\\Michalmanko\\Holiday\\Test\\Provider\\ProviderTest'
+            'Provider',
+            '\\Michalmanko\\Holiday\\Test\\Provider\\Provider'
         );
-        $provider = HolidayFactory::createProvider('ProviderTest');
+        $provider = HolidayFactory::createProvider('Provider');
         $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $provider);
     }
 
     public function testProviderFactoryRegistryRegisterByNotInstanceOfAbstract()
     {
         $this->setExpectedException('\\Michalmanko\\Holiday\\Exception\\InvalidArgumentException');
-        HolidayFactory::registerProvider('NotProviderTest', '\\tests\\Michalmanko\\Holiday\\Test\\Provider\\');
-        HolidayFactory::createProvider('NotProviderTest');
+        HolidayFactory::registerProvider('NotProvider', '\\Michalmanko\\Holiday\\Test\\Provider\\');
+        HolidayFactory::createProvider('NotProvider');
     }
 }

@@ -16,6 +16,8 @@ use DateTimeZone;
 
 /**
  * Holiday class.
+ *
+ * @author Michał Mańko <github@michalmanko.com>
  */
 class Holiday extends DateTime
 {
@@ -56,8 +58,12 @@ class Holiday extends DateTime
      * @param null|DateTimeZone $timezone (optional) Timezone
      * @param null|string       $type     (optional) Type
      */
-    public function __construct($name, $time, DateTimeZone $timezone = null, $type = self::TYPE_HOLIDAY)
-    {
+    public function __construct(
+        $name,
+        $time,
+        DateTimeZone $timezone = null,
+        $type = self::TYPE_HOLIDAY
+    ) {
         if ($time instanceof DateTime) {
             $time = $time->format('Y-m-d H:i:s');
         }

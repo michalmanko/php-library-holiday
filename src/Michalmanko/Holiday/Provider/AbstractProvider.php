@@ -20,6 +20,8 @@ use Michalmanko\Holiday\Provider\Exception\UnexpectedValueException;
 
 /**
  * Abstract provider class.
+ *
+ * @author Michał Mańko <github@michalmanko.com>
  */
 abstract class AbstractProvider
 {
@@ -73,7 +75,7 @@ abstract class AbstractProvider
      *
      * @return Holiday
      */
-    public function createHoliday($name, $time, $type = self::TYPE_HOLIDAY)
+    public function createHoliday($name, $time, $type = Holiday::TYPE_HOLIDAY)
     {
         return new Holiday($name, $time, $this->getTimeZone(), $type);
     }
@@ -91,9 +93,7 @@ abstract class AbstractProvider
     protected function getEaster($year)
     {
         $easter = new DateTime('now', $this->getTimeZone());
-        if (false === $easter->setDate($year, 3, 21)) {
-            throw new InvalidArgumentException('Invalid year given');
-        }
+        $easter->setDate($year, 3, 21);
         $easter->setTime(0, 0, 0);
         $easter->modify('+' . easter_days($year) . 'days');
 
@@ -112,12 +112,6 @@ abstract class AbstractProvider
      */
     public function getHolidaysByYear($year, $type = null)
     {
-        // Check if the given year is correct
-        $validYearDate = new DateTime();
-        if (!$validYearDate->setDate($year, 1, 1)) {
-            throw new InvalidArgumentException('Invalid year given');
-        }
-
         if (!isset($this->holidays[$year])) {
             $preparedHolidays = $this->prepareHolidays($year);
             if (is_object($preparedHolidays) && $preparedHolidays instanceof ArrayObject) {
@@ -155,14 +149,19 @@ abstract class AbstractProvider
      *
      * @return array
      */
-    public function getHolidays(DateTime $startDate, $endDateOrType = null, $type = null)
-    {
+    public function getHolidays(
+        DateTime $startDate,
+        $endDateOrType = null,
+        $type = null
+    ) {
         $startDate = clone $startDate;
         $startDate->setTime(0, 0, 0);
 
         if ($endDateOrType !== null && !($endDateOrType instanceof DateTime)) {
             if ($type !== null) {
-                throw new InvalidArgumentException('$endDateOrType must be an instance of \DateTime');
+                throw new InvalidArgumentException(
+                    '$endDateOrType must be an instance of \DateTime'
+                );
             }
             $type          = $endDateOrType;
             $endDateOrType = clone $startDate;
@@ -198,8 +197,11 @@ abstract class AbstractProvider
      *
      * @return bool
      */
-    public function hasHolidays(DateTime $startDate, DateTime $endDate, $type = null)
-    {
+    public function hasHolidays(
+        DateTime $startDate,
+        DateTime $endDate,
+        $type = null
+    ) {
         return count($this->getHolidays($startDate, $endDate, $type)) > 0;
     }
 

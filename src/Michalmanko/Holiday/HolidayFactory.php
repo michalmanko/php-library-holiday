@@ -18,6 +18,8 @@ use Michalmanko\Holiday\Exception\InvalidArgumentException;
  * Holiday providers factory.
  *
  * Declared abstract, as we have no need for instantiation.
+ *
+ * @author Michał Mańko <github@michalmanko.com>
  */
 abstract class HolidayFactory
 {
@@ -64,8 +66,8 @@ abstract class HolidayFactory
      */
     public static function unregisterProvider($providerClassName)
     {
-        if (array_key_exists($providerClassName, static::$providers)) {
-            unset(static::$providers[$providerClassName]);
+        if (array_key_exists(strtoupper($providerClassName), static::$providers)) {
+            unset(static::$providers[strtoupper($providerClassName)]);
 
             return true;
         }
@@ -100,21 +102,26 @@ abstract class HolidayFactory
             if (substr(static::$providers[$countryCode], 0, 1) == '\\') {
                 $className = static::$providers[$countryCode];
             } else {
-                $className = '\\' . __NAMESPACE__ . '\\Provider\\' . static::$providers[$countryCode];
+                $className = '\\' . __NAMESPACE__ . '\\Provider\\'
+                    . static::$providers[$countryCode];
             }
         } else {
             $className = '\\' . __NAMESPACE__ . '\\Provider\\' . $countryCode;
         }
 
         if (!class_exists($className)) {
-            throw new InvalidArgumentException(sprintf('Cannot find Holiday provider class "%s"', $className));
+            throw new InvalidArgumentException(sprintf(
+                'Cannot find Holiday provider class "%s"',
+                $className
+            ));
         }
 
         $provider = new $className($timezone);
 
         if (!$provider instanceof Provider\AbstractProvider) {
-            throw new InvalidArgumentException(\sprintf(
-                'Class "%s" must be an instance of \\Michalmanko\\Holiday\\Provider\\AbstractProvider',
+            throw new InvalidArgumentException(sprintf(
+                'Class "%s" must be an instance of '
+                . '\\Michalmanko\\Holiday\\Provider\\AbstractProvider',
                 $className
             ));
         }

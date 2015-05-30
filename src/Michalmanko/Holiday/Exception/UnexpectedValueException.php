@@ -13,6 +13,8 @@ namespace Michalmanko\Holiday\Exception;
 
 /**
  * Exception thrown if a value does not match with a set of values.
+ *
+ * @author Michał Mańko <github@michalmanko.com>
  */
 class UnexpectedValueException extends \UnexpectedValueException
 {

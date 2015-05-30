@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+1.1.0
+----------
+ + 100% Code Coverage
+
 1.0.0
 ----------
  + upgrade phpunit to version 4.6

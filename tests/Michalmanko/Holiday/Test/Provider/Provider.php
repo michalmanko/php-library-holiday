@@ -11,6 +11,14 @@
 
 namespace Michalmanko\Holiday\Test\Provider;
 
-class NotProviderTest
+use Michalmanko\Holiday\Provider\AbstractProvider;
+
+/*
+ * @author Michał Mańko <github@michalmanko.com>
+ */
+class Provider extends AbstractProvider
 {
+    protected function prepareHolidays($year)
+    {
+    }
 }
