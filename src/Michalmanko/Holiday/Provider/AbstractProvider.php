@@ -101,16 +101,13 @@ abstract class AbstractProvider
     }
 
     /**
-     * Returns the holidays in given year.
+     * Prepare the holidays in given year based on {@see prepareHolidays()}.
      *
-     * @param int         $year The year to get the holidays for
-     * @param null|string $type (optional) Holiday type
+     * @param int $year
      *
-     * @throws InvalidArgumentException
-     *
-     * @return array An array of Holidays
+     * @throws UnexpectedValueException
      */
-    public function getHolidaysByYear($year, $type = null)
+    private function prepareHolidaysByYear($year)
     {
         if (!isset($this->holidays[$year])) {
             $preparedHolidays = $this->prepareHolidays($year);
@@ -126,18 +123,33 @@ abstract class AbstractProvider
 
             $this->holidays[$year] = $preparedHolidays;
         }
+    }
 
-        if ($type !== null) {
-            // Note: array_filter preserves keys, so we use array_values to reset array keys
-            return array_values(array_filter(
-                $this->holidays[$year],
-                function (Holiday $holiday) use ($type) {
-                    return $holiday->getType() === $type;
-                }
-            ));
+    /**
+     * Returns the holidays in given year.
+     *
+     * @param int         $year The year to get the holidays for
+     * @param null|string $type (optional) Holiday type
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return array An array of Holidays
+     */
+    public function getHolidaysByYear($year, $type = null)
+    {
+        $this->prepareHolidaysByYear($year);
+
+        if (null === $type) {
+            return $this->holidays[$year];
         }
 
-        return $this->holidays[$year];
+        // Note: array_filter preserves keys, so we use array_values to reset array keys
+        return array_values(array_filter(
+            $this->holidays[$year],
+            function (Holiday $holiday) use ($type) {
+                return $holiday->getType() === $type;
+            }
+        ));
     }
 
     /**
