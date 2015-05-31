@@ -76,9 +76,7 @@ class HolidayTest extends PHPUnit_Framework_TestCase
     public function testInvalidTimezoneInConstruct()
     {
         $this->setExpectedException(
-            version_compare(PHP_VERSION, '7', '<')
-            ? '\\PHPUnit_Framework_Error'
-            : '\\TypeException',
+            '\\PHPUnit_Framework_Error',
             'Argument 3 passed to Michalmanko\Holiday\Holiday::__construct() '
             . 'must be an instance of DateTimeZone, string given'
         );
