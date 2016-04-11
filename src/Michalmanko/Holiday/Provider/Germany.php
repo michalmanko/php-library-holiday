@@ -21,7 +21,6 @@ use Michalmanko\Holiday\Holiday;
  */
 class Germany extends AbstractProvider
 {
-
     /**
      * {@inheritdoc}
      */
@@ -58,6 +57,13 @@ class Germany extends AbstractProvider
         $easterMonday->modify('+1 day');
         $data->append($easterMonday);
 
+        // Labour Day
+        $data->append($this->createHoliday(
+            'Erster Mai',
+            $year . '-05-01',
+            Holiday::TYPE_HOLIDAY
+        ));
+
         // Feast of the Ascension
         $feastOfTheAscension = $this->createHoliday(
             'Christi Himmelfahrt',
@@ -86,13 +92,6 @@ class Germany extends AbstractProvider
         $data->append($this->createHoliday(
             'Tag der Deutschen Einheit',
             $year . '-10-03',
-            Holiday::TYPE_HOLIDAY
-        ));
-
-        // Labour Day
-        $data->append($this->createHoliday(
-            'Erster Mai',
-            $year . '-05-01',
             Holiday::TYPE_HOLIDAY
         ));
 
@@ -125,6 +124,7 @@ class Germany extends AbstractProvider
     }
 
     /**
+     * Returns Holiday instance for Pentecost Sunday of the given year
      * @param $year
      * @return Holiday
      */
@@ -137,15 +137,17 @@ class Germany extends AbstractProvider
     }
 
     /**
+     * Returns Holiday instance for Epiphany day of the given year
      * @param $year
      * @return Holiday
      */
-    public function getHolidayEpiphandy($year)
+    public function getHolidayEpiphany($year)
     {
         return $this->createHoliday('Heilige Drei Könige', $year . '-01-06', Holiday::TYPE_HOLIDAY);
     }
 
     /**
+     * Returns Holiday instance for Easter Sunday of the given year
      * @param $year
      * @return Holiday
      */
@@ -154,6 +156,11 @@ class Germany extends AbstractProvider
         return $this->createHoliday('Ostersonntag', $this->getEaster($year), Holiday::TYPE_HOLIDAY);
     }
 
+    /**
+     * Returns Holiday instance for Corpus Christi day of the given year
+     * @param $year
+     * @return Holiday
+     */
     public function getHolidayCorpusChristi($year)
     {
         $corpusChristi = $this->createHoliday('Fronleichnam', $this->getEaster($year), Holiday::TYPE_HOLIDAY);
@@ -162,6 +169,7 @@ class Germany extends AbstractProvider
     }
 
     /**
+     * Returns Holiday instance for Assumption Of The Blessed Virgin Mary day of the given year
      * @param $year
      * @return Holiday
      */
@@ -181,6 +189,7 @@ class Germany extends AbstractProvider
     }
 
     /**
+     * Returns Holiday instance for All Saints Day of the given year
      * @param $year
      * @return Holiday
      */
@@ -190,6 +199,7 @@ class Germany extends AbstractProvider
     }
 
     /**
+     * Returns Holiday instance for "Buß Und Bett Tag" of the given year
      * @param $year
      * @return Holiday
      */

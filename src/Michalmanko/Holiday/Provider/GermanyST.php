@@ -20,12 +20,15 @@ use ArrayObject;
  */
 class GermanyST extends Germany
 {
+    /**
+     * {@inheritdoc}
+     */
     protected function prepareHolidays($year)
     {
         /** @var ArrayObject $data */
         $data = new ArrayObject(parent::prepareHolidays($year));
 
-        $data->append($this->getHolidayEpiphandy($year));
+        $data->append($this->getHolidayEpiphany($year));
         if ($year != 2017)
             $data->append($this->getHolidayReformationDay($year));
 

@@ -20,6 +20,9 @@ use ArrayObject;
  */
 class GermanyNI extends Germany
 {
+    /**
+     * {@inheritdoc}
+     */
     protected function prepareHolidays($year)
     {
         /** @var ArrayObject $data */
