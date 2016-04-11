@@ -31,6 +31,23 @@ abstract class HolidayFactory
     protected static $providers = array(
         'PL' => 'Poland',
         'DK' => 'Denmark',
+        'GER' => 'Germany',
+        'GER_BB' => 'GermanyBB',
+        'GER_BE' => 'GermanyBE',
+        'GER_BW' => 'GermanyBW',
+        'GER_BY' => 'GermanyBY',
+        'GER_HB' => 'GermanyHB',
+        'GER_HE' => 'GermanyHE',
+        'GER_HH' => 'GermanyHH',
+        'GER_MV' => 'GermanyMV',
+        'GER_NI' => 'GermanyNI',
+        'GER_NW' => 'GermanyNW',
+        'GER_RP' => 'GermanyRP',
+        'GER_SH' => 'GermanySH',
+        'GER_SL' => 'GermanySL',
+        'GER_SN' => 'GermanySN',
+        'GER_ST' => 'GermanyST',
+        'GER_TH' => 'GermanyTH',
     );
 
     /**
