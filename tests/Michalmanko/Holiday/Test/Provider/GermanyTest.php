@@ -36,16 +36,16 @@ class GermanyTest extends AbstractTestProvider
     public function dataProvider()
     {
         return array(
-            ['Neujahr', Holiday::TYPE_HOLIDAY, array('2015-01-01', '2020-01-01')],
-            ['Karfreitag', Holiday::TYPE_HOLIDAY, array('2015-04-03', '2020-04-10')],
-            ['Ostermontag', Holiday::TYPE_HOLIDAY, array('2015-04-06', '2020-04-13')],
-            ['Christi Himmelfahrt', Holiday::TYPE_HOLIDAY, array('2015-05-14', '2020-05-21', '2025-05-29')],
-            ['Erster Mai', Holiday::TYPE_HOLIDAY, array('2015-05-01', '2020-05-01', '2025-05-01')],
-            ['Pfingstmontag', Holiday::TYPE_HOLIDAY, array('2015-05-25', '2020-06-01', '2025-06-09')],
-            ['Tag der Deutschen Einheit', Holiday::TYPE_HOLIDAY, array('2015-10-03', '2020-10-03', '2025-10-03')],
-            ['Reformationstag', Holiday::TYPE_HOLIDAY, array('2017-10-31')],
-            ['1. Weihnachtstag', Holiday::TYPE_HOLIDAY, array('2015-12-25', '2020-12-25')],
-            ['2. Weihnachtstag', Holiday::TYPE_HOLIDAY, array('2015-12-26', '2020-12-26')],
+            array('Neujahr', Holiday::TYPE_HOLIDAY, array('2015-01-01', '2020-01-01')),
+            array('Karfreitag', Holiday::TYPE_HOLIDAY, array('2015-04-03', '2020-04-10')),
+            array('Ostermontag', Holiday::TYPE_HOLIDAY, array('2015-04-06', '2020-04-13')),
+            array('Christi Himmelfahrt', Holiday::TYPE_HOLIDAY, array('2015-05-14', '2020-05-21', '2025-05-29')),
+            array('Erster Mai', Holiday::TYPE_HOLIDAY, array('2015-05-01', '2020-05-01', '2025-05-01')),
+            array('Pfingstmontag', Holiday::TYPE_HOLIDAY, array('2015-05-25', '2020-06-01', '2025-06-09')),
+            array('Tag der Deutschen Einheit', Holiday::TYPE_HOLIDAY, array('2015-10-03', '2020-10-03', '2025-10-03')),
+            array('Reformationstag', Holiday::TYPE_HOLIDAY, array('2017-10-31')),
+            array('1. Weihnachtstag', Holiday::TYPE_HOLIDAY, array('2015-12-25', '2020-12-25')),
+            array('2. Weihnachtstag', Holiday::TYPE_HOLIDAY, array('2015-12-26', '2020-12-26')),
         );
     }
 
