@@ -51,41 +51,41 @@ class GermanyTest extends AbstractTestProvider
 
     public function getEasterSundayTestData()
     {
-        return ['Ostersonntag', Holiday::TYPE_HOLIDAY, array('2015-04-05', '2020-04-12')];
+        return array('Ostersonntag', Holiday::TYPE_HOLIDAY, array('2015-04-05', '2020-04-12'));
     }
 
     public function getPentecostSundayTestData()
     {
-        return ['Pfingstsonntag', Holiday::TYPE_HOLIDAY, array('2015-05-24', '2020-05-31')];
+        return array('Pfingstsonntag', Holiday::TYPE_HOLIDAY, array('2015-05-24', '2020-05-31'));
     }
 
     public function getReformationTestData()
     {
-        return ['Reformationstag', Holiday::TYPE_HOLIDAY, array('2015-10-31', '2020-10-31')];
+        return array('Reformationstag', Holiday::TYPE_HOLIDAY, array('2015-10-31', '2020-10-31'));
     }
 
     public function getEpiphanyTestData()
     {
-        return ['Heilige Drei Könige', Holiday::TYPE_HOLIDAY, array('2015-01-06', '2020-01-06')];
+        return array('Heilige Drei Könige', Holiday::TYPE_HOLIDAY, array('2015-01-06', '2020-01-06'));
     }
 
     public function getCorpusChristiTestData()
     {
-        return ['Christi Himmelfahrt', Holiday::TYPE_HOLIDAY, array('2015-05-14', '2020-05-21')];
+        return array('Christi Himmelfahrt', Holiday::TYPE_HOLIDAY, array('2015-05-14', '2020-05-21'));
     }
 
     public function getAllSaintsDayTestData()
     {
-        return ['Allerheiligen', Holiday::TYPE_HOLIDAY, array('2015-11-01', '2020-11-01')];
+        return array('Allerheiligen', Holiday::TYPE_HOLIDAY, array('2015-11-01', '2020-11-01'));
     }
 
     public function getAssumptionOfTheBlessedVirginMaryTestData()
     {
-        return ['Mariä Himmelfahrt', Holiday::TYPE_HOLIDAY, array('2015-08-15', '2020-08-15')];
+        return array('Mariä Himmelfahrt', Holiday::TYPE_HOLIDAY, array('2015-08-15', '2020-08-15'));
     }
 
     public function getBuszUndBettTagTestData()
     {
-        return ['Buß- und Bettag', Holiday::TYPE_HOLIDAY, array('2015-11-18', '2020-11-18')];
+        return array('Buß- und Bettag', Holiday::TYPE_HOLIDAY, array('2015-11-18', '2020-11-18'));
     }
 }
