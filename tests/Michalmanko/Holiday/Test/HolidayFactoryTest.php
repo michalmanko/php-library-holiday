@@ -39,15 +39,97 @@ class HolidayFactoryTest extends PHPUnit_Framework_TestCase
             '\\Michalmanko\\Holiday\\Test\\Provider\\Provider'
         );
 
-        $provider2 = HolidayFactory::createProvider('Country');
+        $providerCountry = HolidayFactory::createProvider('Country');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerCountry);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Test\\Provider\\Provider', $providerCountry);
 
-        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $provider2);
-        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Test\\Provider\\Provider', $provider2);
+        $providerPoland = HolidayFactory::createProvider('Poland');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerPoland);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Poland', $providerPoland);
 
-        $provider3 = HolidayFactory::createProvider('Poland');
+        $providerGermany = HolidayFactory::createProvider('Germany');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermany);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermany);
 
-        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $provider3);
-        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Poland', $provider3);
+        $providerGermanyBB = HolidayFactory::createProvider('GermanyBB');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyBB);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyBB);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyBB', $providerGermanyBB);
+
+        $providerGermanyBE = HolidayFactory::createProvider('GermanyBE');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyBE);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyBE);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyBE', $providerGermanyBE);
+
+        $providerGermanyBW = HolidayFactory::createProvider('GermanyBW');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyBW);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyBW);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyBW', $providerGermanyBW);
+
+        $providerGermanyBY = HolidayFactory::createProvider('GermanyBY');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyBY);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyBY);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyBY', $providerGermanyBY);
+
+        $providerGermanyHB = HolidayFactory::createProvider('GermanyHB');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyHB);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyHB);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyHB', $providerGermanyHB);
+
+        $providerGermanyHE = HolidayFactory::createProvider('GermanyHE');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyHE);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyHE);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyHE', $providerGermanyHE);
+
+        $providerGermanyHH = HolidayFactory::createProvider('GermanyHH');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyHH);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyHH);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyHH', $providerGermanyHH);
+
+        $providerGermanyMV = HolidayFactory::createProvider('GermanyMV');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyMV);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyMV);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyMV', $providerGermanyMV);
+
+        $providerGermanyNI = HolidayFactory::createProvider('GermanyNI');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyNI);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyNI);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyNI', $providerGermanyNI);
+
+        $providerGermanyNW = HolidayFactory::createProvider('GermanyNW');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyNW);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyNW);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyNW', $providerGermanyNW);
+
+        $providerGermanyRP = HolidayFactory::createProvider('GermanyRP');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyRP);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyRP);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyRP', $providerGermanyRP);
+
+        $providerGermanySH = HolidayFactory::createProvider('GermanySH');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanySH);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanySH);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanySH', $providerGermanySH);
+
+        $providerGermanySL = HolidayFactory::createProvider('GermanySL');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanySL);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanySL);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanySL', $providerGermanySL);
+
+        $providerGermanySN = HolidayFactory::createProvider('GermanySN');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanySN);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanySN);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanySN', $providerGermanySN);
+
+        $providerGermanyST = HolidayFactory::createProvider('GermanyST');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyST);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyST);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyST', $providerGermanyST);
+
+        $providerGermanyTH = HolidayFactory::createProvider('GermanyTH');
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\AbstractProvider', $providerGermanyTH);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\Germany', $providerGermanyTH);
+        $this->assertInstanceOf('\\Michalmanko\\Holiday\\Provider\\GermanyTH', $providerGermanyTH);
     }
 
     public function testProviderFactoryNotFound()
